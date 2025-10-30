@@ -1,0 +1,248 @@
+{
+  "timestamp": "2025-10-30T15:34:42.821593",
+  "agents": [
+    {
+      "agent_id": "agent_3",
+      "agent_name": "Simple-Momentum-2",
+      "portfolio_value": 10004.036899105773,
+      "cash_balance": 12229.133928086516,
+      "total_return": 0.04036899105773045,
+      "total_trades": 22,
+      "win_rate": 0.0,
+      "positions": {
+        "BNB/USDT": {
+          "quantity": 0.09639940205297479,
+          "avg_price": 1062.4118942762182,
+          "current_price": 1066.82,
+          "value": 102.84081009815455,
+          "pnl": 0.42493875595885855
+        },
+        "ETH/USDT": {
+          "quantity": -0.5579467537965731,
+          "avg_price": 3776.4744181621495,
+          "current_price": 3770.0,
+          "value": -2103.4592618130805,
+          "pnl": 3.612380596292891
+        },
+        "BTC/USDT": {
+          "quantity": -0.005665700036340215,
+          "avg_price": 107704.96058000003,
+          "current_price": 107583.11,
+          "value": -609.5336302365934,
+          "pnl": 0.6903688355342323
+        },
+        "SOL/USDT": {
+          "quantity": 2.1044709677585205,
+          "avg_price": 182.9285108105845,
+          "current_price": 182.97,
+          "value": 385.0550529707765,
+          "pnl": 0.08731279460075492
+        }
+      },
+      "recent_trades": [
+        {
+          "symbol": "ETH/USDT",
+          "type": "buy",
+          "quantity": 0.07030232207967191,
+          "price": 3771.8849999999998,
+          "timestamp": "2025-10-30T15:33:43.211099",
+          "reasoning": "Dip detected: -4.31% drop. Buying the dip - 0.070302 ETH/USDT at $3771.88 (ask)"
+        },
+        {
+          "symbol": "ETH/USDT",
+          "type": "short",
+          "quantity": 0.07480381691949474,
+          "price": 3768.1150000000002,
+          "timestamp": "2025-10-30T15:33:54.065433",
+          "reasoning": "Strong negative momentum: -4.31% drop. Shorting 0.074804 ETH/USDT at $3768.12 (bid)"
+        },
+        {
+          "symbol": "BNB/USDT",
+          "type": "buy",
+          "quantity": 0.22500676493286376,
+          "price": 1067.35341,
+          "timestamp": "2025-10-30T15:33:59.374098",
+          "reasoning": "Dip detected: -4.32% drop. Buying the dip - 0.225007 BNB/USDT at $1067.35 (ask)"
+        },
+        {
+          "symbol": "BNB/USDT",
+          "type": "buy",
+          "quantity": 0.1472356612461969,
+          "price": 1067.35341,
+          "timestamp": "2025-10-30T15:34:21.059301",
+          "reasoning": "Dip detected: -4.28% drop. Buying the dip - 0.147236 BNB/USDT at $1067.35 (ask)"
+        },
+        {
+          "symbol": "BNB/USDT",
+          "type": "buy",
+          "quantity": 0.1237703821973479,
+          "price": 1067.35341,
+          "timestamp": "2025-10-30T15:34:31.968918",
+          "reasoning": "Dip detected: -4.28% drop. Buying the dip - 0.123770 BNB/USDT at $1067.35 (ask)"
+        }
+      ]
+    },
+    {
+      "agent_id": "agent_1",
+      "agent_name": "DeepSeek-V3-Simulated",
+      "portfolio_value": 10002.083753122974,
+      "cash_balance": 12293.720728259123,
+      "total_return": 0.02083753122973576,
+      "total_trades": 15,
+      "win_rate": 0.0,
+      "positions": {
+        "ETH/USDT": {
+          "quantity": -0.38695802615096137,
+          "avg_price": 3776.6067950246693,
+          "current_price": 3770.0,
+          "value": -1458.8317585891243,
+          "pnl": 2.5565523619300174
+        },
+        "SOL/USDT": {
+          "quantity": -2.6849836682888544,
+          "avg_price": 182.80559860328432,
+          "current_price": 182.97,
+          "value": -491.2714617868117,
+          "pnl": -0.44141506522546486
+        },
+        "BTC/USDT": {
+          "quantity": 0.0016206296746677697,
+          "avg_price": 107768.17087640756,
+          "current_price": 107583.11,
+          "value": 174.35238055904688,
+          "pnl": -0.2999151479261142
+        },
+        "BNB/USDT": {
+          "quantity": -0.4835737381369486,
+          "avg_price": 1067.3753051231245,
+          "current_price": 1066.82,
+          "value": -515.8861353192594,
+          "pnl": 0.2685309741959257
+        }
+      },
+      "recent_trades": [
+        {
+          "symbol": "BTC/USDT",
+          "type": "buy",
+          "quantity": 0.002060587872549093,
+          "price": 107636.95158,
+          "timestamp": "2025-10-30T15:31:41.256219",
+          "reasoning": "Dip detected: -3.24% drop. Buying the dip - 0.002061 BTC/USDT at $107636.95 (ask)"
+        },
+        {
+          "symbol": "BNB/USDT",
+          "type": "short",
+          "quantity": 0.30489192648714336,
+          "price": 1066.28659,
+          "timestamp": "2025-10-30T15:32:23.513476",
+          "reasoning": "Strong negative momentum: -4.06% drop. Shorting 0.304892 BNB/USDT at $1066.29 (bid)"
+        },
+        {
+          "symbol": "ETH/USDT",
+          "type": "short",
+          "quantity": 0.08936261064107032,
+          "price": 3768.1150000000002,
+          "timestamp": "2025-10-30T15:33:32.256621",
+          "reasoning": "Strong negative momentum: -4.31% drop. Shorting 0.089363 ETH/USDT at $3768.12 (bid)"
+        },
+        {
+          "symbol": "ETH/USDT",
+          "type": "buy",
+          "quantity": 0.032045035918676835,
+          "price": 3771.8849999999998,
+          "timestamp": "2025-10-30T15:33:59.374066",
+          "reasoning": "Dip detected: -4.31% drop. Buying the dip - 0.032045 ETH/USDT at $3771.88 (ask)"
+        },
+        {
+          "symbol": "BNB/USDT",
+          "type": "buy",
+          "quantity": 0.10306200073338669,
+          "price": 1067.35341,
+          "timestamp": "2025-10-30T15:34:05.099691",
+          "reasoning": "Dip detected: -4.28% drop. Buying the dip - 0.103062 BNB/USDT at $1067.35 (ask)"
+        }
+      ]
+    },
+    {
+      "agent_id": "agent_2",
+      "agent_name": "Simple-Momentum-1",
+      "portfolio_value": 9997.92556274306,
+      "cash_balance": 11200.21478384219,
+      "total_return": -0.02074437256940655,
+      "total_trades": 11,
+      "win_rate": 0.0,
+      "positions": {
+        "BNB/USDT": {
+          "quantity": 0.06152090460890863,
+          "avg_price": 1066.28659,
+          "current_price": 1066.82,
+          "value": 65.6317314548759,
+          "pnl": 0.03281586572743817
+        },
+        "BTC/USDT": {
+          "quantity": -0.008192376317791794,
+          "avg_price": 107571.58002111947,
+          "current_price": 107583.11,
+          "value": -881.3613225583896,
+          "pnl": -0.09445792592547532
+        },
+        "ETH/USDT": {
+          "quantity": -0.16012822011813793,
+          "avg_price": 3768.1150000000002,
+          "current_price": 3770.0,
+          "value": -603.68338984538,
+          "pnl": -0.3018416949226521
+        },
+        "SOL/USDT": {
+          "quantity": 1.1866631680043918,
+          "avg_price": 183.06148499999998,
+          "current_price": 182.97,
+          "value": 217.12375984976356,
+          "pnl": -0.10856187992485494
+        }
+      },
+      "recent_trades": [
+        {
+          "symbol": "ETH/USDT",
+          "type": "short",
+          "quantity": 0.0988712365433406,
+          "price": 3768.1150000000002,
+          "timestamp": "2025-10-30T15:32:18.252857",
+          "reasoning": "Strong negative momentum: -4.31% drop. Shorting 0.098871 ETH/USDT at $3768.12 (bid)"
+        },
+        {
+          "symbol": "BTC/USDT",
+          "type": "short",
+          "quantity": 0.0030474334884924483,
+          "price": 107529.36842000001,
+          "timestamp": "2025-10-30T15:32:29.451623",
+          "reasoning": "Strong negative momentum: -3.54% drop. Shorting 0.003047 BTC/USDT at $107529.37 (bid)"
+        },
+        {
+          "symbol": "BNB/USDT",
+          "type": "short",
+          "quantity": 0.3307155082625047,
+          "price": 1066.28659,
+          "timestamp": "2025-10-30T15:33:16.236701",
+          "reasoning": "Strong negative momentum: -4.32% drop. Shorting 0.330716 BNB/USDT at $1066.29 (bid)"
+        },
+        {
+          "symbol": "ETH/USDT",
+          "type": "short",
+          "quantity": 0.06125698357479732,
+          "price": 3768.1150000000002,
+          "timestamp": "2025-10-30T15:34:10.547731",
+          "reasoning": "Strong negative momentum: -4.31% drop. Shorting 0.061257 ETH/USDT at $3768.12 (bid)"
+        },
+        {
+          "symbol": "SOL/USDT",
+          "type": "buy",
+          "quantity": 1.1866631680043918,
+          "price": 183.06148499999998,
+          "timestamp": "2025-10-30T15:34:26.795237",
+          "reasoning": "Dip detected: -6.48% drop. Buying the dip - 1.186663 SOL/USDT at $183.06 (ask)"
+        }
+      ]
+    }
+  ]
+}

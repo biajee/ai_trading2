@@ -1,0 +1,27 @@
+# Core dependencies
+python-dotenv==1.0.0
+pydantic==2.5.0
+requests>=2.31.0
+
+# AI Model APIs (optional - only if using real AI agents)
+openai>=1.3.5
+anthropic>=0.7.4
+google-generativeai>=0.3.1
+
+# Exchange integration (optional - only for real trading)
+ccxt>=4.1.0
+
+# Dashboard (optional)
+plotly>=5.18.0
+dash>=2.14.2
+
+# Additional features (optional)
+fastapi==0.104.1
+uvicorn==0.24.0
+pandas==2.1.3
+numpy==1.26.2
+websockets==12.0
+aiohttp==3.9.0
+redis==5.0.1
+sqlalchemy==2.0.23
+alembic==1.12.1

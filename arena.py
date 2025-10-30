@@ -18,11 +18,13 @@ class TradingArena:
         self.agent_states: Dict[str, AgentState] = {}
         self.is_running = False
         self.state_file = "arena_state.json"
+        self.current_cycle = 0
+        self.cycle_history: Dict[str, List[dict]] = {}  # agent_id -> list of cycle snapshots
         
     def add_agent(self, agent: BaseAgent):
         """Add an agent to the arena"""
         self.agents[agent.agent_id] = agent
-        
+
         # Initialize agent state
         self.agent_states[agent.agent_id] = AgentState(
             agent_id=agent.agent_id,
@@ -30,6 +32,9 @@ class TradingArena:
             starting_capital=Config.STARTING_CAPITAL,
             cash_balance=Config.STARTING_CAPITAL,
         )
+
+        # Initialize cycle history for this agent
+        self.cycle_history[agent.agent_id] = []
         
         # Set initial balance for mock exchange
         if self.exchange.is_mock():
@@ -216,20 +221,25 @@ class TradingArena:
     
     async def run_trading_cycle(self):
         """Run one trading cycle"""
+        self.current_cycle += 1
+
         print(f"\n{'='*60}")
-        print(f"🔄 Trading Cycle - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"🔄 Trading Cycle #{self.current_cycle} - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"{'='*60}")
-        
+
         # Update market data
         market_data = await self.update_market_data()
-        
+
         # Each agent makes decision
         tasks = [
             self.execute_agent_decision(agent, market_data)
             for agent in self.agents.values()
         ]
         await asyncio.gather(*tasks)
-        
+
+        # Save cycle snapshot for each agent
+        self.save_cycle_snapshot()
+
         # Print leaderboard
         self.print_leaderboard()
     
@@ -296,11 +306,27 @@ class TradingArena:
         print(f"{'='*60}")
         self.print_leaderboard()
     
+    def save_cycle_snapshot(self):
+        """Save snapshot of current cycle for all agents"""
+        for agent_id, state in self.agent_states.items():
+            snapshot = {
+                "cycle": self.current_cycle,
+                "timestamp": datetime.now().isoformat(),
+                "portfolio_value": state.total_portfolio_value,
+                "cash_balance": state.cash_balance,
+                "total_return": state.total_return,
+                "total_trades": state.total_trades,
+                "win_rate": state.win_rate,
+                "num_positions": len(state.positions)
+            }
+            self.cycle_history[agent_id].append(snapshot)
+
     def save_state(self):
         """Save arena state to file for dashboard"""
         try:
             state_data = {
                 "timestamp": datetime.now().isoformat(),
+                "current_cycle": self.current_cycle,
                 "agents": []
             }
 
@@ -331,7 +357,8 @@ class TradingArena:
                             "timestamp": trade.timestamp.isoformat(),
                             "reasoning": trade.reasoning
                         } for trade in state.trade_history[-5:]  # Last 5 trades
-                    ]
+                    ],
+                    "cycle_history": self.cycle_history.get(agent_id, [])
                 }
                 state_data["agents"].append(agent_data)
 

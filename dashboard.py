@@ -80,7 +80,8 @@ def load_agent_data():
                 "trades": agent.get("total_trades", 0),
                 "positions": agent.get("positions", {}),
                 "recent_trades": agent.get("recent_trades", []),
-                "win_rate": agent.get("win_rate", 0.0)
+                "win_rate": agent.get("win_rate", 0.0),
+                "cycle_history": agent.get("cycle_history", [])
             })
 
         return agents if agents else [{
@@ -145,15 +146,26 @@ app.layout = html.Div([
         dcc.Graph(id='performance-chart')
     ], style={'marginBottom': 50}),
     
-    # Market Data
+    # Arena Status and Market Data
     html.Div([
-        html.H2("💹 Live Market Prices", style={'color': '#2c3e50', 'marginBottom': 20}),
-        html.Div(id='market-prices', style={
-            'display': 'flex',
-            'justifyContent': 'space-around',
-            'flexWrap': 'wrap'
-        })
-    ], style={'marginBottom': 50}),
+        html.Div([
+            html.H2("🔄 Arena Status", style={'color': '#2c3e50', 'marginBottom': 20}),
+            html.Div(id='cycle-info', style={
+                'backgroundColor': 'white',
+                'padding': '20px',
+                'borderRadius': '10px'
+            })
+        ], style={'flex': '1', 'marginRight': '20px'}),
+
+        html.Div([
+            html.H2("💹 Live Market Prices", style={'color': '#2c3e50', 'marginBottom': 20}),
+            html.Div(id='market-prices', style={
+                'display': 'flex',
+                'justifyContent': 'space-around',
+                'flexWrap': 'wrap'
+            })
+        ], style={'flex': '2'}),
+    ], style={'display': 'flex', 'marginBottom': 50}),
     
     # Auto-refresh
     dcc.Interval(
@@ -232,43 +244,113 @@ def update_leaderboard(n):
     Input('interval-component', 'n_intervals')
 )
 def update_chart(n):
-    """Update performance chart with real agent data"""
+    """Update performance chart with real cycle history"""
     agents = load_agent_data()
     fig = go.Figure()
 
     # Add traces for each agent
     for agent in agents:
-        # Simple visualization showing progression
-        starting = Config.STARTING_CAPITAL
-        current = agent['value']
+        cycle_history = agent.get('cycle_history', [])
 
-        # Create a simple 5-point progression
-        steps = 5
-        values = []
-        for i in range(steps):
-            progress = i / (steps - 1)
-            value = starting + (current - starting) * progress
-            values.append(value)
+        if cycle_history:
+            # Use actual cycle history
+            cycles = [h['cycle'] for h in cycle_history]
+            values = [h['portfolio_value'] for h in cycle_history]
 
-        fig.add_trace(go.Scatter(
-            x=list(range(1, steps + 1)),
-            y=values,
-            mode='lines+markers',
-            name=agent['name'],
-            line=dict(width=3)
-        ))
+            # Add hover text with additional info
+            hover_text = [
+                f"Cycle {h['cycle']}<br>"
+                f"Value: ${h['portfolio_value']:,.2f}<br>"
+                f"Return: {h['total_return']:+.2f}%<br>"
+                f"Trades: {h['total_trades']}<br>"
+                f"Win Rate: {h['win_rate']:.1f}%"
+                for h in cycle_history
+            ]
+
+            fig.add_trace(go.Scatter(
+                x=cycles,
+                y=values,
+                mode='lines+markers',
+                name=agent['name'],
+                line=dict(width=3),
+                hovertext=hover_text,
+                hoverinfo='text'
+            ))
+        else:
+            # No cycle history yet - show current state only
+            fig.add_trace(go.Scatter(
+                x=[0, 1],
+                y=[Config.STARTING_CAPITAL, agent['value']],
+                mode='lines+markers',
+                name=agent['name'],
+                line=dict(width=3, dash='dash')
+            ))
 
     fig.update_layout(
-        title='Portfolio Value Progression',
-        xaxis_title='Progress',
+        title='Portfolio Value Over Trading Cycles',
+        xaxis_title='Cycle Number',
         yaxis_title='Portfolio Value ($)',
-        hovermode='x unified',
+        hovermode='closest',
         height=500,
         plot_bgcolor='white',
         paper_bgcolor='white',
     )
 
     return fig
+
+
+@app.callback(
+    Output('cycle-info', 'children'),
+    Input('interval-component', 'n_intervals')
+)
+def update_cycle_info(n):
+    """Update cycle information"""
+    state_file = "arena_state.json"
+
+    if not os.path.exists(state_file):
+        return html.Div([
+            html.P("⏸️ Arena not started", style={'fontSize': 18, 'fontWeight': 'bold'}),
+            html.P("Waiting for trading cycles...", style={'color': '#7f8c8d', 'marginTop': 10})
+        ])
+
+    try:
+        with open(state_file, 'r') as f:
+            state_data = json.load(f)
+
+        current_cycle = state_data.get('current_cycle', 0)
+        timestamp = state_data.get('timestamp', '')
+        num_agents = len(state_data.get('agents', []))
+
+        # Format timestamp
+        try:
+            from datetime import datetime
+            dt = datetime.fromisoformat(timestamp)
+            time_str = dt.strftime('%H:%M:%S')
+        except:
+            time_str = 'Unknown'
+
+        return html.Div([
+            html.Div([
+                html.Span("Cycle: ", style={'color': '#7f8c8d'}),
+                html.Span(f"#{current_cycle}", style={'fontSize': 24, 'fontWeight': 'bold', 'color': '#2c3e50'})
+            ], style={'marginBottom': 15}),
+
+            html.Div([
+                html.Span("Active Agents: ", style={'color': '#7f8c8d'}),
+                html.Span(f"{num_agents}", style={'fontSize': 18, 'fontWeight': 'bold', 'color': '#3498db'})
+            ], style={'marginBottom': 15}),
+
+            html.Div([
+                html.Span("Last Update: ", style={'color': '#7f8c8d'}),
+                html.Span(time_str, style={'fontSize': 16, 'color': '#27ae60'})
+            ]),
+        ])
+
+    except Exception as e:
+        return html.Div([
+            html.P("⚠️ Error loading cycle info", style={'color': '#e74c3c'}),
+            html.P(str(e), style={'fontSize': 12, 'color': '#7f8c8d'})
+        ])
 
 
 @app.callback(

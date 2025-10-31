@@ -1,0 +1,370 @@
+{
+  "timestamp": "2025-10-30T18:34:15.867800",
+  "current_cycle": 11,
+  "agents": [
+    {
+      "agent_id": "agent_1",
+      "agent_name": "DeepSeek-V3",
+      "portfolio_value": 10000.0,
+      "cash_balance": 10000.0,
+      "total_return": 0.0,
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "positions": {},
+      "recent_trades": [],
+      "cycle_history": [
+        {
+          "cycle": 1,
+          "timestamp": "2025-10-30T18:32:31.331786",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 2,
+          "timestamp": "2025-10-30T18:32:42.973478",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 3,
+          "timestamp": "2025-10-30T18:32:53.370157",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 4,
+          "timestamp": "2025-10-30T18:33:04.686560",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 5,
+          "timestamp": "2025-10-30T18:33:16.262264",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 6,
+          "timestamp": "2025-10-30T18:33:26.608183",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 7,
+          "timestamp": "2025-10-30T18:33:37.394128",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 8,
+          "timestamp": "2025-10-30T18:33:47.896373",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 9,
+          "timestamp": "2025-10-30T18:33:59.096028",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 10,
+          "timestamp": "2025-10-30T18:34:10.498639",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        }
+      ]
+    },
+    {
+      "agent_id": "agent_2",
+      "agent_name": "Simple-Momentum-1",
+      "portfolio_value": 10000.0,
+      "cash_balance": 10000.0,
+      "total_return": 0.0,
+      "total_trades": 0,
+      "win_rate": 0.0,
+      "positions": {},
+      "recent_trades": [],
+      "cycle_history": [
+        {
+          "cycle": 1,
+          "timestamp": "2025-10-30T18:32:31.331797",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 2,
+          "timestamp": "2025-10-30T18:32:42.973490",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 3,
+          "timestamp": "2025-10-30T18:32:53.370169",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 4,
+          "timestamp": "2025-10-30T18:33:04.686572",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 5,
+          "timestamp": "2025-10-30T18:33:16.262275",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 6,
+          "timestamp": "2025-10-30T18:33:26.608195",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 7,
+          "timestamp": "2025-10-30T18:33:37.394139",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 8,
+          "timestamp": "2025-10-30T18:33:47.896389",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 9,
+          "timestamp": "2025-10-30T18:33:59.096041",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 10,
+          "timestamp": "2025-10-30T18:34:10.498653",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        }
+      ]
+    },
+    {
+      "agent_id": "agent_3",
+      "agent_name": "Simple-Momentum-2",
+      "portfolio_value": 9999.784599981273,
+      "cash_balance": 9568.984562528158,
+      "total_return": -0.002154000187274505,
+      "total_trades": 2,
+      "win_rate": 0.0,
+      "positions": {
+        "BNB/USDT": {
+          "quantity": 0.39608333329022627,
+          "avg_price": 1088.193825,
+          "current_price": 1087.65,
+          "value": 430.8000374531146,
+          "pnl": -0.21540001872654535
+        }
+      },
+      "recent_trades": [
+        {
+          "symbol": "BNB/USDT",
+          "type": "buy",
+          "quantity": 0.19673744988236316,
+          "price": 1088.193825,
+          "timestamp": "2025-10-30T18:33:58.740238",
+          "reasoning": "Dip detected: -2.78% drop. Buying the dip - 0.196737 BNB/USDT at $1088.19 (ask)"
+        },
+        {
+          "symbol": "BNB/USDT",
+          "type": "buy",
+          "quantity": 0.19934588340786313,
+          "price": 1088.193825,
+          "timestamp": "2025-10-30T18:34:10.041240",
+          "reasoning": "Dip detected: -2.78% drop. Buying the dip - 0.199346 BNB/USDT at $1088.19 (ask)"
+        }
+      ],
+      "cycle_history": [
+        {
+          "cycle": 1,
+          "timestamp": "2025-10-30T18:32:31.331799",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 2,
+          "timestamp": "2025-10-30T18:32:42.973492",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 3,
+          "timestamp": "2025-10-30T18:32:53.370171",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 4,
+          "timestamp": "2025-10-30T18:33:04.686574",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 5,
+          "timestamp": "2025-10-30T18:33:16.262277",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 6,
+          "timestamp": "2025-10-30T18:33:26.608197",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 7,
+          "timestamp": "2025-10-30T18:33:37.394140",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 8,
+          "timestamp": "2025-10-30T18:33:47.896391",
+          "portfolio_value": 10000.0,
+          "cash_balance": 10000.0,
+          "total_return": 0.0,
+          "total_trades": 0,
+          "win_rate": 0.0,
+          "num_positions": 0
+        },
+        {
+          "cycle": 9,
+          "timestamp": "2025-10-30T18:33:59.096044",
+          "portfolio_value": 10000.0,
+          "cash_balance": 9785.911521891765,
+          "total_return": 0.0,
+          "total_trades": 1,
+          "win_rate": 0.0,
+          "num_positions": 1
+        },
+        {
+          "cycle": 10,
+          "timestamp": "2025-10-30T18:34:10.498656",
+          "portfolio_value": 9999.784599981273,
+          "cash_balance": 9568.984562528158,
+          "total_return": -0.002154000187274505,
+          "total_trades": 2,
+          "win_rate": 0.0,
+          "num_positions": 1
+        }
+      ]
+    }
+  ]
+}

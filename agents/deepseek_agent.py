@@ -60,14 +60,14 @@ class DeepSeekAgent(BaseAgent):
                         
                         Respond ONLY with valid JSON in this exact format:
                         {
-                            "action": "buy" or "sell" or "hold",
+                            "action": "buy" or "sell" or "short" or "cover" or "hold",
                             "symbol": "BTC/USDT" or "ETH/USDT" or "SOL/USDT" or "BNB/USDT",
                             "percentage": 0.02 to 0.5 (percentage of portfolio to risk),
                             "reasoning": "Brief explanation of your decision"
                         }
                         
                         Use technical analysis, momentum, and risk management principles.
-                        You can SELL positions you currently hold to take profits or cut losses."""
+                        You can SELL positions you currently hold to take profits or cut losses. You can also SHORT assets or COVER short positions."""
                     },
                     {
                         "role": "user",

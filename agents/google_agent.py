@@ -102,10 +102,28 @@ You can SELL positions you currently hold to take profits or cut losses."""
 
         for data in market_data:
             summary += f"\n{data.symbol}:\n"
-            summary += f"  Price: ${data.price:.2f}\n"
+            summary += f"  Current Price: ${data.price:.2f}\n"
             summary += f"  24h Change: {data.price_change_percent_24h:.2f}%\n"
             summary += f"  24h High: ${data.high_24h:.2f}\n"
             summary += f"  24h Low: ${data.low_24h:.2f}\n"
+
+            # Add price history (last 60 points)
+            if data.price_history and len(data.price_history) > 0:
+                summary += f"  Price History (last {len(data.price_history)} data points):\n"
+                summary += f"    {', '.join([f'${p:.2f}' for p in data.price_history])}\n"
+
+                # Calculate some trend indicators
+                if len(data.price_history) >= 10:
+                    recent_10 = data.price_history[-10:]
+                    avg_recent = sum(recent_10) / len(recent_10)
+                    trend = "RISING" if data.price > avg_recent else "FALLING"
+                    summary += f"  Short-term Trend (last 10 points): {trend}\n"
+
+                if len(data.price_history) >= 30:
+                    recent_30 = data.price_history[-30:]
+                    avg_medium = sum(recent_30) / len(recent_30)
+                    medium_trend = "BULLISH" if data.price > avg_medium else "BEARISH"
+                    summary += f"  Medium-term Trend (last 30 points): {medium_trend}\n"
 
         return summary
     

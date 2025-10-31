@@ -11,7 +11,7 @@ from config import Config
 
 class TradingArena:
     """Main trading arena orchestrator"""
-    
+
     def __init__(self):
         self.exchange: BaseExchange = ExchangeFactory.create_exchange()
         self.agents: Dict[str, BaseAgent] = {}
@@ -20,6 +20,7 @@ class TradingArena:
         self.state_file = "arena_state.json"
         self.current_cycle = 0
         self.cycle_history: Dict[str, List[dict]] = {}  # agent_id -> list of cycle snapshots
+        self.price_history: Dict[str, List[float]] = {}  # symbol -> list of prices (last 60)
         
     def add_agent(self, agent: BaseAgent):
         """Add an agent to the arena"""
@@ -45,7 +46,22 @@ class TradingArena:
     async def update_market_data(self):
         """Update market data for all trading pairs"""
         market_data = await self.exchange.get_multiple_market_data(Config.TRADING_PAIRS)
-        
+
+        # Update price history for each symbol (keep last 60 points)
+        for symbol, data in market_data.items():
+            if symbol not in self.price_history:
+                self.price_history[symbol] = []
+
+            # Add current price
+            self.price_history[symbol].append(data.price)
+
+            # Keep only last 60 price points
+            if len(self.price_history[symbol]) > 60:
+                self.price_history[symbol] = self.price_history[symbol][-60:]
+
+            # Attach price history to market data
+            data.price_history = self.price_history[symbol].copy()
+
         # Update prices in agent states
         market_prices = {symbol: data.price for symbol, data in market_data.items()}
         for state in self.agent_states.values():

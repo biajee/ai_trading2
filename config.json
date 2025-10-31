@@ -67,7 +67,7 @@
   "competition": {
     "duration_days": 7,
     "cycles": 5000000,
-    "cycle_interval": 10
+    "cycle_interval": 60
   },
   "logging": {
     "level": "INFO",

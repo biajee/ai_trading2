@@ -62,7 +62,7 @@ class DeepSeekAgent(BaseAgent):
                         {
                             "action": "buy" or "sell" or "hold",
                             "symbol": "BTC/USDT" or "ETH/USDT" or "SOL/USDT" or "BNB/USDT",
-                            "percentage": 0.02 to 0.05 (percentage of portfolio to risk),
+                            "percentage": 0.02 to 0.5 (percentage of portfolio to risk),
                             "reasoning": "Brief explanation of your decision"
                         }
                         

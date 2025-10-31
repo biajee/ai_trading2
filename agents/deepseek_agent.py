@@ -19,11 +19,11 @@ class DeepSeekAgent(BaseAgent):
         
         # Initialize DeepSeek client if API key is available
         # DeepSeek API is OpenAI-compatible
-        if Config.DEEPSEEK_API_KEY:
+        if Config.get_api_key("deepseek"):
             try:
                 import openai
                 self.client = openai.OpenAI(
-                    api_key=Config.DEEPSEEK_API_KEY,
+                    api_key=Config.get_api_key("deepseek"),
                     base_url="https://api.deepseek.com"
                 )
             except ImportError:

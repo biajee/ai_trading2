@@ -78,6 +78,8 @@ class Config:
         """Get API key for any agent type from config or env"""
         agent_config = cls.get_agent_config(agent_type)
         api_key_name = agent_config.get("api_key_name", "")
+
+        print("api_key_name:", api_key_name)
         
         if api_key_name:
             # Try from config.json ai_api_keys section
@@ -86,8 +88,7 @@ class Config:
                 return key
             
             # Try from .env with uppercase conversion
-            env_key_name = f"{api_key_name.upper()}_API_KEY"
-            return os.getenv(env_key_name, "")
+            return os.getenv(api_key_name, "")
         
         return ""
     
@@ -106,6 +107,8 @@ class Config:
     @classmethod
     def is_agent_enabled(cls, agent_type: str) -> bool:
         """Check if an agent type is enabled"""
+        print("agent_type:", agent_type)
+        print("enabled:", cls._get("agents", agent_type, "enabled", default=False))
         return cls._get("agents", agent_type, "enabled", default=False)
     
     # Market Data

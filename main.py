@@ -26,6 +26,9 @@ async def main():
             api_key = Config.get_api_key(agent_type)
             agent_name = agent_config.get("name", agent_type.capitalize())
             agent_class_name = agent_config.get("agent_class")
+
+            print("api_key:", api_key)
+            print("agent_class_name:", agent_class_name)
             
             if api_key and agent_class_name:
                 # Get the agent class dynamically

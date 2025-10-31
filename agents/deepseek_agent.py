@@ -77,7 +77,9 @@ class DeepSeekAgent(BaseAgent):
                 temperature=0.7,
                 max_tokens=300
             )
-            
+            print("DeepSeek market data:", market_summary)
+            print("DeepSeek response:", response)
+
             # Parse response
             decision_text = response.choices[0].message.content.strip()
             
